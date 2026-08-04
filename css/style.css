@@ -1,0 +1,634 @@
+/* ==========================================================================
+   VARIABLES GLOBALES (Colores corporativos y Tipografías)
+   ========================================================================== */
+:root {
+    --azul-profundo: #0a192f;  /* Color del bloque derecho (Seriedad) */
+    --dorado-premium: #b3924e; /* Botones y acentos */
+    --texto-oscuro: #1e293b;   /* Color para los títulos de la izquierda */
+    --texto-mutado: #64748b;   /* Color suave para descripciones (CORREGIDO EL NOMBRE) */
+    --blanco-puro: #ffffff;
+    
+    --fuente-titulos: 'Playfair Display', serif;
+    --fuente-cuerpo: 'Inter', sans-serif;
+}
+
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--fuente-cuerpo);
+    color: var(--texto-oscuro);
+}
+
+/* ==========================================================================
+   HEADER / NAVEGACIÓN (Corregido y Alineado Horizontalmente)
+   ========================================================================== */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 3rem 4rem;
+    
+    /* Centra el contenido del header por defecto */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+/* Sacamos el logo del flujo normal para que no empuje al menú */
+.logo {
+    position: absolute;
+    left: 4rem; /* Lo alinea a la izquierda respetando el padding del header */
+    max-width: 120px; /* Tamaño controlado y elegante */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* El contenedor del menú ahora sí se adueña del centro real de la pantalla */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-menu {
+    background: rgba(255, 255, 255, 0.08); /* Un toque sutil blanco transparente */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); 
+    padding: 0.6rem 2.2rem;
+    border-radius: 50px;
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--blanco-puro); /* Color base para cuando pisa el lado claro */
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--dorado-premium);
+}
+
+/* Cambia dinámicamente el color del link a oscuro si está sobre la sección clara */
+@media (min-width: 1025px) {
+    /* Tip para que los enlaces del menú sobre la zona beige sean oscuros y legibles */
+    .nav-link {
+        color: black; /* Por defecto en blanco para el bloque oscuro */
+    }
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--dorado-premium);
+}
+
+/* ==========================================================================
+   SECCIÓN HÉROE (Diseño de pantalla dividida)
+   ========================================================================== */
+.hero-section {
+    display: grid;
+    grid-template-columns: 45% 55%; 
+    min-height: 100vh;
+    align-items: center;
+    background-color: rgba(124, 118, 31, 0.238); /* Tu tono beige/crema personalizado */
+    overflow: hidden;
+}
+
+/* CONTENIDO IZQUIERDO */
+.hero-content {
+    padding: 6rem 4rem 4rem 8rem; /* Aumentado padding-top para dar espacio al header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-title {
+    font-family: var(--fuente-titulos);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-title span {
+    color: var(--dorado-premium);
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--texto-mutado); /* CORREGIDO EL NOMBRE DE VARIABLE */
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+}
+
+/* Botón de Acción Principal */
+.btn-cta {
+    align-self: flex-start;
+    background-color: var(--dorado-premium);
+    color: var(--blanco-puro);
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 14px rgba(179, 146, 78, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: #9c7e40;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(179, 146, 78, 0.4);
+}
+
+/* BLOQUE DERECHO VISUAL */
+.hero-visual {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.visual-background-shape {
+    background-color: var(--azul-profundo);
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 180px; 
+    
+    background-image: url('../assets/img/logo_hero.webp'); 
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat;
+    
+    position: relative;
+    overflow: hidden; 
+}
+
+/* Capa superpuesta para amarrar los tonos oscuros */
+.visual-background-shape::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(10, 25, 47, 0.3), rgba(10, 25, 47, 0.1));
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   ESTILOS GENERALES COMPARTIDOS
+   ========================================================================== */
+.section-subtitle {
+    display: block;
+    color: var(--dorado-premium);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    color: var(--azul-profundo);
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   SECCIÓN NOSOTROS (about-section)
+   ========================================================================== */
+.about-section {
+    padding: 8rem 4rem;
+    background-color: var(--blanco-puro);
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--texto-mutado);
+    margin-bottom: 1.5rem;
+}
+
+.about-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.stat-item h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    color: var(--dorado-premium);
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    color: var(--texto-oscuro);
+    font-weight: 500;
+}
+
+/* Contenedor optimizado para la imagen de la firma */
+.about-image-container {
+    width: 100%;
+    height: 480px; /* Altura estilizada fija para mantener balance con el texto */
+    border-radius: 12px;
+    overflow: hidden; /* Esto obliga a la imagen a respetar las esquinas redondeadas */
+    box-shadow: 0 15px 35px rgba(10, 25, 47, 0.12); /* Sombra elegante */
+    position: relative;
+}
+
+/* Reglas críticas para que la imagen se adapte perfectamente sin deformarse */
+.about-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen llene el espacio como un fondo sin estirarse feo */
+    object-position: center; /* Centra el enfoque de la foto */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Efecto hover premium por si el usuario pasa el mouse por encima */
+.about-image-container:hover img {
+    transform: scale(1.03); /* Un zoom muy sutil e institucional */
+}
+
+/* Capa de destello o filtro opcional para suavizar los tonos oscuros con la paleta general */
+.about-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(10, 25, 47, 0.05), rgba(10, 25, 47, 0.2));
+    pointer-events: none; /* No interrumpe los clics ni hovers */
+}
+
+/* ==========================================================================
+   SECCIÓN SERVICIOS (services-section)
+   ========================================================================== */
+.services-section {
+    padding: 8rem 4rem;
+    background-color: rgba(124, 118, 31, 0.24) /* Fondo beige muy tenue */
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.section-desc {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--texto-mutado);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Caja de llamado a la acción para el Brochure */
+.brochure-download-box {
+    background: var(--azul-profundo);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 10px 25px rgba(10, 25, 47, 0.05);
+}
+
+.brochure-text h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--dorado-premium);
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.brochure-text p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+.btn-brochure {
+    background-color: transparent;
+    color: var(--dorado-premium);
+    border: 2px solid var(--dorado-premium);
+    padding: 0.8rem 1.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.btn-brochure:hover {
+    background-color: var(--dorado-premium);
+    color: var(--blanco-puro);
+}
+
+.service-card {
+    background: var(--blanco-puro);
+    padding: 3rem 2rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border-top: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-top-color: var(--dorado-premium);
+    box-shadow: 0 12px 30px rgba(10, 25, 47, 0.06);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    color: var(--dorado-premium);
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.35rem;
+    color: var(--azul-profundo);
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--texto-mutado);
+    margin-bottom: 1.5rem;
+}
+
+.service-link {
+    text-decoration: none;
+    color: var(--dorado-premium);
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s ease;
+}
+
+.service-card:hover .service-link {
+    gap: 0.8rem;
+}
+
+/* ==========================================================================
+   SECCIÓN CONTACTO Y RESEÑAS (contact-section)
+   ========================================================================== */
+.contact-section {
+    padding: 8rem 4rem;
+    background-color: var(--blanco-puro);
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 4rem;
+}
+
+/* Bloque izquierdo de testimonios */
+.reviews-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.review-card {
+    background: rgba(124, 118, 31, 0.04);
+    padding: 2rem;
+    border-left: 3px solid var(--dorado-premium);
+    border-radius: 0 8px 8px 0;
+}
+
+.review-stars {
+    color: var(--dorado-premium);
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.review-card p {
+    font-style: italic;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--texto-oscuro);
+    margin-bottom: 0.8rem;
+}
+
+.review-card h4 {
+    font-size: 0.85rem;
+    color: var(--texto-mutado);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Bloque derecho del formulario */
+.contact-form-box {
+    background-color: var(--azul-profundo);
+    padding: 3.5rem;
+    border-radius: 8px;
+    color: var(--blanco-puro);
+    box-shadow: 0 10px 30px rgba(10, 25, 47, 0.15);
+}
+
+.contact-form-box h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--dorado-premium);
+}
+
+.contact-form-box p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #cbd5e1;
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    color: var(--blanco-puro);
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--dorado-premium);
+}
+
+.btn-submit {
+    background-color: var(--dorado-premium);
+    color: var(--blanco-puro);
+    border: none;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: #9c7e40;
+}
+
+/* RESPONSIVE ADICIONAL PARA LAS NUEVAS SECCIONES */
+@media (max-width: 992px) {
+    .about-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-section, .services-section, .contact-section {
+        padding: 5rem 2rem;
+    }
+    
+    .contact-form-box {
+        padding: 2rem;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Media Queries para Celulares)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-section {
+        grid-template-columns: 1fr; 
+    }
+
+    .header {
+        position: relative;
+        padding: 1.5rem;
+        flex-direction: column; /* En móviles los apila verticalmente */
+        gap: 1.5rem;
+        background-color: rgba(124, 118, 31, 0.15);
+    }
+
+    .logo {
+        position: static; /* En celulares vuelve al flujo normal para que no flote sobre el menú */
+        margin: 0 auto;
+    }
+    
+    .nav-link {
+        color: black; /* En móvil se lee mejor en blanco si el fondo colapsa */
+    }
+
+    .hero-content {
+        padding: 4rem 2rem 4rem 2rem;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-cta {
+        align-self: center;
+    }
+
+    .hero-visual {
+        height: 50vh; 
+    }
+    
+    .visual-background-shape {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 100px; 
+    }
+
+    .nav-link {
+        color: var(--texto-oscuro);
+    }
+}

@@ -28,3 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
         window.open(urlWhatsApp, '_blank');
     });
 });
+
+function openTab(evt, tabName) {
+    // 1. Ocultar todos los contenidos de las pestañas
+    const tabContents = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active");
+    }
+
+    // 2. Desactivar el estado 'active' de todos los botones
+    const tabBtns = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+    }
+
+    // 3. Mostrar la pestaña actual y activar el botón presionado
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}

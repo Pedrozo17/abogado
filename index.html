@@ -80,84 +80,101 @@
         </section>
 
     <section id="servicios" class="services-section">
-        <div class="services-container">
-
-            <div class="services-header">
-            <span class="section-subtitle">Área Jurídica</span>
-            <h2 class="section-title">Soluciones Legales para Proteger su Patrimonio</h2>
-            <p class="section-desc">Defensa y gestión estratégica en asuntos patrimoniales, contractuales, inmobiliarios y cobro de cartera.</p>
+    <div class="services-container">
+        
+        <!-- Botones de Pestañas (Tabs) -->
+        <div class="services-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'juridica')">
+                <i class="ri-scales-3-line"></i> Área Jurídica
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'financiera')">
+                <i class="ri-bank-card-line"></i> Ingeniería Hipotecaria
+            </button>
         </div>
-    
-        <div class="services-grid">
-            <!-- Tarjeta 1: Protección Patrimonial y Familiar -->
-            <div class="service-card">
-                <div class="card-icon"><i class="ri-shield-user-line"></i></div>
-                <h3>Protección Patrimonial y Familiar</h3>
-                <p>Sucesiones y distribución de bienes en vida para evitar conflictos. Blindaje de propiedades mediante Patrimonio de Familia, Afectación a Vivienda y Fideicomiso Civil. Asesoría en pensiones.</p>
-                <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20solicito%20asesoría%20sobre%20Protección%20Patrimonial%20y%20Asuntos%20Familiares." target="_blank" class="service-link">
-                    Consultar caso <i class="ri-whatsapp-line"></i>
-                </a>
-            </div>
 
-            <!-- Tarjeta 2: Conflictos Inmobiliarios y Arrendamientos -->
-            <div class="service-card">
-                <div class="card-icon"><i class="ri-home-gear-line"></i></div>
-                <h3>Conflictos Inmobiliarios y Arriendos</h3>
-                <p>Restitución rápida de inmuebles frente a inquilinos morosos. Estudio exhaustivo de títulos para compraventa segura previniendo fraudes y embargos, y redacción de contratos civiles.</p>
-                <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20requiero%20asesoría%20en%20Restitución%20de%20Inmuebles%20o%20Derecho%20Inmobiliario." target="_blank" class="service-link">
-                    Consultar caso <i class="ri-whatsapp-line"></i>
-                </a>
+        <!-- ==========================================
+             PESTAÑA 1: ÁREA JURÍDICA (Activa por defecto)
+             ========================================== -->
+        <div id="juridica" class="tab-content active">
+            <div class="services-header">
+                <span class="section-subtitle">Área Jurídica</span>
+                <h2 class="section-title">Soluciones Legales para Proteger su Patrimonio</h2>
+                <p class="section-desc">Defensa y gestión estratégica en asuntos patrimoniales, contractuales, inmobiliarios y cobro de cartera.</p>
             </div>
+        
+            <div class="services-grid">
+                <!-- Tarjeta 1 -->
+                <div class="service-card">
+                    <div class="card-icon"><i class="ri-shield-user-line"></i></div>
+                    <h3>Protección Patrimonial y Familiar</h3>
+                    <p>Sucesiones y distribución de bienes en vida para evitar conflictos. Blindaje de propiedades mediante Patrimonio de Familia, Afectación a Vivienda y Fideicomiso Civil. Asesoría en pensiones.</p>
+                    <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20solicito%20asesoría%20sobre%20Protección%20Patrimonial%20y%20Asuntos%20Familiares." target="_blank" class="service-link">
+                        Consultar caso <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
 
-            <!-- Tarjeta 3: Cobro de Deudas y Defensa del Consumidor -->
-            <div class="service-card">
-                <div class="card-icon"><i class="ri-funds-box-line"></i></div>
-                <h3>Cobro de Cartera y Defensa del Consumidor</h3>
-                <p>Recuperación judicial/extrajudicial de pagarés, cheques, letras y facturas. Representación ante cobros indebidos, reportes injustificados en centrales de riesgo y abusos contractuales.</p>
-                <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20necesito%20asesoría%20para%20Cobro%20de%20Cartera%20o%20Defensa%20del%20Consumidor." target="_blank" class="service-link">
-                    Consultar caso <i class="ri-whatsapp-line"></i>
-                </a>
+                <!-- Tarjeta 2 -->
+                <div class="service-card">
+                    <div class="card-icon"><i class="ri-home-gear-line"></i></div>
+                    <h3>Conflictos Inmobiliarios y Arriendos</h3>
+                    <p>Restitución rápida de inmuebles frente a inquilinos morosos. Estudio exhaustivo de títulos para compraventa segura previniendo fraudes y embargos, y redacción de contratos civiles.</p>
+                    <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20requiero%20asesoría%20en%20Restitución%20de%20Inmuebles%20o%20Derecho%20Inmobiliario." target="_blank" class="service-link">
+                        Consultar caso <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="service-card">
+                    <div class="card-icon"><i class="ri-funds-box-line"></i></div>
+                    <h3>Cobro de Cartera y Defensa del Consumidor</h3>
+                    <p>Recuperación judicial/extrajudicial de pagarés, cheques, letras y facturas. Representación ante cobros indebidos, reportes injustificados en centrales de riesgo y abusos contractuales.</p>
+                    <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20necesito%20asesoría%20para%20Cobro%20de%20Cartera%20o%20Defensa%20del%20Consumidor." target="_blank" class="service-link">
+                        Consultar caso <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- ==========================================
-             BLOQUE 2: SECCIÓN FINANCIERA E HIPOTECARIA
-             ========================================= -->
-        <div class="services-header" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(10, 25, 47, 0.08);">
-            <span class="section-subtitle">Sección Financiera</span>
-            <h2 class="section-title">Ingeniería Hipotecaria</h2>
-            <p class="section-desc">Optimice su Crédito de Vivienda, ahorre millones en intereses y encuentre la mejor tasa del mercado.</p>
-        </div>
-
-        <div class="services-grid">
-            <!-- Tarjeta 4: Reducción de Crédito Hipotecario -->
-            <div class="service-card">
-                <div class="card-icon"><i class="ri-line-chart-line"></i></div>
-                <h3>Reducción de Crédito Hipotecario y Leasing</h3>
-                <p>Amparados en la Ley 546 de 1999, reducimos de 3 a 10 años su crédito realizando abonos inteligentes a capital. Ahorre millones en intereses sin cambiar de banco ni tramitar nuevas escrituras.</p>
-                <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20quiero%20información%20sobre%20la%20Reducción%20de%20mi%20Crédito%20Hipotecario%20(Ley%20546)." target="_blank" class="service-link">
-                    Analizar mi crédito <i class="ri-whatsapp-line"></i>
-                </a>
+             PESTAÑA 2: SECCIÓN FINANCIERA
+             ========================================== -->
+        <div id="financiera" class="tab-content">
+            <div class="services-header">
+                <span class="section-subtitle">Sección Financiera</span>
+                <h2 class="section-title">Ingeniería Hipotecaria</h2>
+                <p class="section-desc">Optimice su Crédito de Vivienda, ahorre millones en intereses y encuentre la mejor tasa del mercado.</p>
             </div>
 
-            <!-- Tarjeta 5: Ubicación de la Mejor Tasa del Mercado -->
-            <div class="service-card">
-                <div class="card-icon"><i class="ri-price-tag-3-line"></i></div>
-                <h3>Ubicación de la Mejor Tasa para Vivienda</h3>
-                <p>Si va a adquirir inmueble nuevo o usado, analizamos el mercado financiero para ubicar la entidad bancaria que le otorgue la mejor tasa de interés y mejores condiciones jurídicas antes de firmar.</p>
-                <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20voy%20a%20comprar%20vivienda%20y%20deseo%20ubicar%20la%20mejor%20tasa%20de%20interés." target="_blank" class="service-link">
-                    Buscar mejor tasa <i class="ri-whatsapp-line"></i>
-                </a>
-            </div>
+            <div class="services-grid">
+                <!-- Tarjeta 4 -->
+                <div class="service-card">
+                    <div class="card-icon"><i class="ri-line-chart-line"></i></div>
+                    <h3>Reducción de Crédito Hipotecario y Leasing</h3>
+                    <p>Amparados en la Ley 546 de 1999, reducimos de 3 a 10 años su crédito realizando abonos inteligentes a capital. Ahorre millones en intereses sin cambiar de banco ni tramitar nuevas escrituras.</p>
+                    <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20quiero%20información%20sobre%20la%20Reducción%20de%20mi%20Crédito%20Hipotecario%20(Ley%20546)." target="_blank" class="service-link">
+                        Analizar mi crédito <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
 
-            <!-- Tarjeta 6: Compra de Cartera y Asesoría Gratuita -->
-            <div class="service-card">
-                <div class="card-icon"><i class="ri-exchange-dollar-line"></i></div>
-                <h3>Compra de Cartera y Intermediación Gratuita</h3>
-                <p>Evaluamos su crédito vigente y trasladamos su deuda al banco con la tasa más baja. El estudio comparativo de mercado, el análisis crediticio y la intermediación son 100% GRATUITOS.</p>
-                <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20solicito%20la%20asesoría%20100%25%20gratuita%20para%20Compra%20de%20Cartera." target="_blank" class="service-link">
-                    Solicitar estudio gratis <i class="ri-whatsapp-line"></i>
-                </a>
+                <!-- Tarjeta 5 -->
+                <div class="service-card">
+                    <div class="card-icon"><i class="ri-price-tag-3-line"></i></div>
+                    <h3>Ubicación de la Mejor Tasa para Vivienda</h3>
+                    <p>Si va a adquirir inmueble nuevo o usado, analizamos el mercado financiero para ubicar la entidad bancaria que le otorgue la mejor tasa de interés y mejores condiciones jurídicas antes de firmar.</p>
+                    <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20voy%20a%20comprar%20vivienda%20y%20deseo%20ubicar%20la%20mejor%20tasa%20de%20interés." target="_blank" class="service-link">
+                        Buscar mejor tasa <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
+
+                <!-- Tarjeta 6 -->
+                <div class="service-card">
+                    <div class="card-icon"><i class="ri-exchange-dollar-line"></i></div>
+                    <h3>Compra de Cartera & Intermediación Gratuita</h3>
+                    <p>Evaluamos su crédito vigente y trasladamos su deuda al banco con la tasa más baja. El estudio comparativo de mercado, el análisis crediticio y la intermediación son 100% GRATUITOS.</p>
+                    <a href="https://wa.me/573102672633?text=Hola%20Dr.%20Andrés,%20solicito%20la%20asesoría%20100%25%20gratuita%20para%20Compra%20de%20Cartera." target="_blank" class="service-link">
+                        Solicitar estudio gratis <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
             </div>
         </div>
 

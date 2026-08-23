@@ -277,6 +277,74 @@ body {
 }
 
 /* ==========================================================================
+   ESTILOS DE PESTAÑAS (TABS) DE SERVICIOS
+   ========================================================================== */
+.services-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.tab-btn {
+    background-color: var(--blanco-puro);
+    color: var(--texto-oscuro);
+    border: 2px solid transparent;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.tab-btn i {
+    font-size: 1.2rem;
+    color: var(--dorado-premium);
+}
+
+.tab-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tab-btn.active {
+    background-color: var(--azul-profundo);
+    color: var(--blanco-puro);
+    border-color: var(--dorado-premium);
+}
+
+.tab-btn.active i {
+    color: var(--dorado-premium);
+}
+
+/* Manejo de visibilidad con animación fade */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================================================
    SECCIÓN SERVICIOS (Optimización para las 6 Especialidades)
    ========================================================================== */
 .services-section {
@@ -547,6 +615,15 @@ body {
 
 /* Dispositivos Móviles (Módulos de menú y tarjetas) */
 @media (max-width: 600px) {
+    .services-tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .tab-btn {
+        justify-content: center;
+    }
+
     .nav-menu {
         padding: 0.5rem 1rem;
         gap: 1rem;
